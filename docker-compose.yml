@@ -1,0 +1,6 @@
+web:
+  image: ghost:0.7
+  environment:
+    - VIRTUAL_HOST=ghost.dev
+  volumes:
+    - /projects/ghost/:/var/lib/ghost
