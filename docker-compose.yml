@@ -4,3 +4,11 @@ web:
     - VIRTUAL_HOST=ghost.dev
   volumes:
     - /projects/ghost/:/var/lib/ghost
+    - /vagrant/configs/eintopf-ghost/:/eintopf_ghost
+  command: sh -c '
+    if [ ! -f /var/lib/ghost/config.js ]; then
+      mkdir -p /var/lib/ghost/;
+      cp /eintopf_ghost/config.js /var/lib/ghost/config.js;
+    fi;
+    /entrypoint.sh npm start;
+    '
