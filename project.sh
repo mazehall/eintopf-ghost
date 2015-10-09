@@ -17,7 +17,7 @@ CONFIG_DIR="${PWD##*/}"
 ####
 
 xcompose () {
-    cd "$CONFIG_PATH" && docker-compose "$@"
+    cd "$CONFIG_PATH" && docker-compose $@
 }
 
 if [ "$INBOX" != true ]; then
