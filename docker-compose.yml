@@ -1,5 +1,5 @@
 web:
-  image: mazelab/ghost:0.7.1
+  image: mazelab/ghost:0.7.5
   environment:
     - VIRTUAL_HOST=ghost.dev
     - GHOST_URL=http://ghost.dev:4480
