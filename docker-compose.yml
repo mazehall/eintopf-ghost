@@ -4,4 +4,4 @@ web:
     - VIRTUAL_HOST=ghost.dev
     - GHOST_URL=http://ghost.dev:4480
   volumes:
-    - /projects/ghost/:/var/lib/ghost
+    - ${PROJECT_PATH}/web:/var/lib/ghost
