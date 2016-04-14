@@ -2,14 +2,15 @@
 
 #####
 # change this part for your own configuration
-#####
-
-PROJECT_DIR="ghost"
-CONFIG_DIR="${PWD##*/}"
+PROJECT_DIR="${PWD##*/}"    # start path for all project dev sources (default to last part of path)
 
 ####
+
+
 . ./project.env.sh
-####
+if ! [ -d "$PROJECT_PATH" ]; then
+    mkdir -p ${PROJECT_PATH}
+fi
 
 
 ####
@@ -21,9 +22,7 @@ xcompose () {
 }
 
 if [ "$INBOX" != true ]; then
-  if callInbox "which docker-compose >> /dev/null"; then
-      xcompose () {
-          callInbox "docker-compose $@"
-      }
-  fi
+  xcompose () {
+      callInbox "PROJECT_PATH=${INBOX_PROJECT_PATH} docker-compose $@"
+  }
 fi
